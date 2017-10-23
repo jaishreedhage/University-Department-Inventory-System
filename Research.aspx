@@ -8,7 +8,7 @@
 <br />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="PUBLICATIONS" />
+<asp:Button ID="Button6" runat="server" OnClick="Button6_Click" Text="PUBLICATIONS" class="btn-primary" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <asp:Button ID="Button7" runat="server" Text="ONGOING RESEARCHES" />
 <br />
