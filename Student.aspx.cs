@@ -16,7 +16,7 @@ public partial class Student : System.Web.UI.Page
             string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
             System.Diagnostics.Debug.WriteLine("** " + connectionString + " ***");
             SqlConnection con = new SqlConnection(connectionString);
-            string sql = "SELECT * FROM Student";
+            string sql = "SELECT * FROM Course";
             SqlCommand cmd = new SqlCommand(sql, con);
             System.Diagnostics.Debug.WriteLine(con);
             using (con)
