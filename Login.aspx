@@ -35,10 +35,16 @@
                 </asp:DropDownList>
             </div>
             <div class="row">
-                <asp:Button ID="Button1" runat="server" Text="Login" class="btn-success" OnClick="Button1_Click"/>
+                <div class="col-lg-3">
+                    <asp:Button ID="Button1" runat="server" Text="Login" class="btn-success" OnClick="Button1_Click"/>
+            
+                </div>
             </div>
+            <br />
             <div class="row">
-                <asp:Button ID="Button2" runat="server" Text="Add member" class="btn-danger" OnClick="Button2_Click"/>
+                <div class="col-lg-3">
+                    <asp:Button ID="Button2" runat="server" Text="Add member" class="btn-danger" OnClick="Button2_Click"/>
+                </div>
             </div>
         </div>
     </form>
