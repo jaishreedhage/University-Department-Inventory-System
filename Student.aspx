@@ -15,7 +15,7 @@
                 
             </div>
             <div class="col-sm-6" style="margin-top:50px">
-                    
+                    Registration number
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 
             </div>
