@@ -36,4 +36,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("About.aspx");
     }
+
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("EditDetails.aspx");
+    }
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx");
+    }
 }

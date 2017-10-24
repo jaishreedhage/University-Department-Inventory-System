@@ -17,15 +17,22 @@
     <body>
         <form id="form1" runat="server">
             <nav class="navbar" style="background-color:black; position:sticky">
-                <div class="container-fluid" style="background-color:white; height:250px">
-                    IMAGE HERE
+                <div class="container-fluid" style="background-color:crimson; height:300px">
+                    <div class="row" style="margin-top:10px">
+                        <div class="col-lg-offset-10 col-lg-2">
+                            <asp:Button ID="Login_Signup" runat="server" class="btn btn-md" BackColor="crimson" BorderStyle="None" OnClick="Button7_Click" Text="LOGIN / SIGNUP" ForeColor="White" Style="margin-left: 40px" />
+                        </div>
+                    </div>
                 </div>
-                <div class="container-fluid" style="margin-left:350px; background-color:black">
-                    <asp:Button ID="Button1" runat="server" class="btn navbar-btn" BackColor="Black"  OnClick="Button1_Click" Text="STUDENT INFORMATION" ForeColor="White" style="margin-left:40px"/>
-                    <asp:Button ID="Button2" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button2_Click" Text="INVENTORY" ForeColor="White" style="margin-left:40px"/>
-                    <asp:Button ID="Button3" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button3_Click" Text="RESEARCH" ForeColor="White" style="margin-left:40px"/>
-                    <asp:Button ID="Button4" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button4_Click" Text="PEOPLE" ForeColor="White" style="margin-left:40px"/>
-                    <asp:Button ID="Button5" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button5_Click" Text="ABOUT" ForeColor="White" style="margin-left:40px"/>
+                <div class="container-fluid" style="background-color:black">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <asp:Button ID="Button1" runat="server" class="btn navbar-btn" BackColor="Black"  OnClick="Button1_Click" Text="STUDENT INFORMATION" ForeColor="White" style="margin-left:40px"/>
+                        <asp:Button ID="Button2" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button2_Click" Text="INVENTORY" ForeColor="White" style="margin-left:40px"/>
+                        <asp:Button ID="Button3" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button3_Click" Text="RESEARCH" ForeColor="White" style="margin-left:40px"/>
+                        <asp:Button ID="Button4" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button4_Click" Text="PEOPLE" ForeColor="White" style="margin-left:40px"/>
+                        <asp:Button ID="Button5" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button5_Click" Text="ABOUT" ForeColor="White" style="margin-left:40px"/>
+                        <asp:Button ID="Button6" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button6_Click" Text="EDIT DETAILS" ForeColor="White" style="margin-left:40px"/>
+                    </div>
                 </div>
             </nav>
             
@@ -33,6 +40,7 @@
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
+
         </form>
     </body>
 </html>
