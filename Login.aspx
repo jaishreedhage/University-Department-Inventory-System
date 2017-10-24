@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
                     <div class="col-sm-4 col-sm-offset-4 text-center">
-                        <asp:Label ID="Label1" runat="server" Text="LOGIN/SIGNUP" ForeColor="White" Font-Bold="True" Font-Size="Large"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="LOGIN / SIGNUP" ForeColor="White" Font-Bold="True" Font-Size="Large"></asp:Label>
                     </div>
                 </div>
             </div>
