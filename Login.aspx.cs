@@ -31,13 +31,25 @@ public partial class Login : System.Web.UI.Page
         SqlConnection con = new SqlConnection(connectionString);
         string sql = "INSERT INTO Members(Username,Password,Member) VALUES('" +TextBox1.Text+"','"+TextBox2.Text+"','"+DropDownList1.SelectedItem.Text+"')";
         SqlCommand cmd = new SqlCommand(sql, con);
-        //System.Diagnostics.Debug.WriteLine(con);
         int inserted = 0;
         using (con)
         {
             con.Open();
-            inserted = cmd.ExecuteNonQuery();
-            //System.Diagnostics.Debug.WriteLine("HELLO "+inserted);
+            try
+            {
+                inserted = cmd.ExecuteNonQuery();
+            }
+            catch(Exception err)
+            {
+                //User already exists
+                System.Diagnostics.Debug.WriteLine("Error in adding user : " + err);
+            }
+            finally
+            {
+                System.Diagnostics.Debug.WriteLine("Entry added "+ inserted);
+                TextBox1.Text = TextBox2.Text = "";
+                DropDownList1.SelectedIndex = 0;
+            }
         }
     }
 }
