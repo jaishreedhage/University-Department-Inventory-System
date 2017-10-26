@@ -19,11 +19,19 @@
     <body>
         <form id="form1" runat="server">
             <nav class="navbar" style="background-color:black; position:sticky">
-                <div class="container-fluid" style="background-color:crimson; height:300px">
+                <div class="container-fluid" style="background-color:crimson; height:300px; width:100%">
                     <div class="row" style="margin-top:10px">
                         <div class="col-lg-offset-10 col-lg-2">
-                            <asp:Button ID="Login_Signup" runat="server" class="btn btn-md" BackColor="crimson" BorderStyle="None" OnClick="Button7_Click" Text="LOGIN / SIGNUP" ForeColor="White" Style="margin-left: 40px" Font-Bold="True" Font-Names="Arial" />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <asp:Button ID="Login_Signup" runat="server" class="btn btn-md" BackColor="crimson" BorderStyle="None" OnClick="Button7_Click" Text="LOGIN / SIGNUP" ForeColor="White" Style="margin-left: 40px" Font-Bold="True" Font-Names="Arial" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <asp:Button ID="Logout" runat="server" class="btn btn-md" BackColor="crimson" BorderStyle="None" OnClick="Button8_Click" Text="LOGOUT" ForeColor="White" Style="margin-left: 40px" Font-Bold="True" Font-Names="Arial" />
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="container-fluid" style="background-color:black; margin-left:40px" >

@@ -9,7 +9,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack) //check if the webpage is loaded for the first time.
+        {
+            ViewState["PreviousPage"] = Request.UrlReferrer;//Saves the Previous page url in ViewState
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -44,5 +47,20 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Button7_Click(object sender, EventArgs e)
     {
         Response.Redirect("Login.aspx");
+    }
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Session["User"] = null;
+        /*if (ViewState["PreviousPage"] != null)  //Check if the ViewState 
+                                                //contains Previous page URL
+        {
+            Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to 
+                                                                    //Previous page by retrieving the PreviousPage Url from ViewState.
+        }
+        else
+        {
+            Response.Redirect("About.aspx");
+        }*/
     }
 }
