@@ -4,10 +4,17 @@
     <style type="text/css">
         .nf-r2 {
           font-family: Roboto, serif;
-          font-size: 20px;
+          font-size: 22px;
           line-height: 38px;
-          font-weight:  normal;
+          font-weight: normal;
           font-style: italic;
+        }
+        .nf-r1 {
+          font-family: Roboto, serif;
+          font-size: 18px;
+          line-height: 38px;
+          font-weight:  bold;
+          font-style: normal;
         }
     </style>
 </asp:Content>
@@ -24,53 +31,59 @@
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="row text-center">
+                        <div class="row text-center nf-r1 glyphicon-bold">
                             COURSES AVAILABLE ARE
                         </div>
                         <div class="row" style="margin-top:50px">
                             <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GridLines="None" DataKeyNames="CourseID" DataSourceID="SqlDataSource1" PageSize="2" CellPadding="200" CellSpacing="100">
-                            <Columns>
-                                <asp:TemplateField HeaderText="CourseID" SortExpression="CourseID">
-                                    <EditItemTemplate>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("CourseID") %>'></asp:Label>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("CourseID") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="CourseName" SortExpression="CourseName" >
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("CourseName") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("CourseName") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Department" SortExpression="Department">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Department") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Department") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Credits" SortExpression="Credits">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Credits") %>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Credits") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField>
-                                    <EditItemTemplate>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" />
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
+                                <HeaderStyle Font-Bold="True" />
+                                <PagerStyle  HorizontalAlign="Center" />
+                                <SortedAscendingCellStyle />
+                                <SortedAscendingHeaderStyle />
+                                <SortedDescendingCellStyle />
+                                <SortedDescendingHeaderStyle  />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="CourseID" SortExpression="CourseID">
+                                        <EditItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("CourseID") %>'></asp:Label>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("CourseID") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="CourseName" SortExpression="CourseName" >
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("CourseName") %>'></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("CourseName") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Department" SortExpression="Department">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Department") %>'></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Department") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Credits" SortExpression="Credits">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Credits") %>'></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Credits") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField>
+                                        <EditItemTemplate>
+                                            <asp:CheckBox ID="CheckBox1" runat="server" />
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="CheckBox1" runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(localdb)\MSSQLlocalDB;Initial Catalog=DepartmentDB;Integrated Security=True" SelectCommand="Select * from Course" />
                         </div>
@@ -82,13 +95,41 @@
                 
                     </div>
                     <div class="col-sm-6">
-                        <p>
+                        <p class="text-center nf-r1">
                             <%# Student_details %>
-                            <asp:GridView ID="GridView2" runat="server" Height="50px" Width="605px" >
-                                
-                            </asp:GridView>
+                        </p> 
+                        <div class="row text-center">
+                            <div class="col-lg-6 col-lg-offset-3">
+                                <asp:Table ID="Table1" runat="server" Width="270px" Visible="false" style="margin-top:20px; margin-left:35px">
+                                    <asp:TableRow ID="tr1" runat="server">
+                                        <asp:TableHeaderCell ID="rg_n">REGISTRATION NUMBER : </asp:TableHeaderCell>
+                                        <asp:TableCell ID="rgn"><%# reg_no %></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow ID="TableRow1" runat="server">
+                                        <asp:TableHeaderCell ID="na_m">NAME : </asp:TableHeaderCell>
+                                        <asp:TableCell ID="nam"><%# name %></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow ID="TableRow2" runat="server">
+                                        <asp:TableHeaderCell ID="add_n">ADDRESS : </asp:TableHeaderCell>
+                                        <asp:TableCell ID="add"><%# address %></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow ID="TableRow3" runat="server">
+                                        <asp:TableHeaderCell ID="dob_n">DATE OF BIRTH : </asp:TableHeaderCell>
+                                        <asp:TableCell ID="dob"><%# Dob %></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow ID="TableRow4" runat="server">
+                                        <asp:TableHeaderCell ID="year_joined_n">YEAR JOINED : </asp:TableHeaderCell>
+                                        <asp:TableCell ID="year_joined"><%# Year_join %></asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow ID="TableRow5" runat="server">
+                                        <asp:TableHeaderCell ID="year_grad_n">YEAR OF GRADUATION : </asp:TableHeaderCell>
+                                        <asp:TableCell ID="year_grad"><%# Year_of_graduation %></asp:TableCell>
+                                    </asp:TableRow>                          
+                                </asp:Table>
+                            </div>
+                        </div>
 
-                            <asp:GridView ID="GridView3" runat="server" Height="50px" Width="100%" GridLines="None">
+                        <asp:GridView ID="GridView3" runat="server" Height="50px" Width="100%" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -102,7 +143,6 @@
                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
 
-                        </p>
                     </div>
                 </div> 
             </div>

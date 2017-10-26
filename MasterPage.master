@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,100,700,100italic,300italic,400italic,700italic&amp;subset=latin" media="all">
 
     </head>
@@ -34,7 +35,7 @@
                         
                     </div>
                 </div>
-                <div class="container-fluid" style="background-color:black; margin-left:40px" >
+                <div class="container-fluid" style="background-color:black; margin-left:80px" >
                     <div class="col-lg-8 col-lg-offset-2">
                         <asp:Button ID="Button1" runat="server" class="btn navbar-btn" BackColor="Black"  OnClick="Button1_Click" Text="STUDENT INFORMATION" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>
                         <asp:Button ID="Button2" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button2_Click" Text="INVENTORY" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>

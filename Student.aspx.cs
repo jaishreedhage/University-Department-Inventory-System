@@ -10,19 +10,46 @@ using System.Web.UI.WebControls;
 
 public partial class Student : System.Web.UI.Page
 {
-    protected string Student_details;
+    protected string Student_details, reg_no, name, address, Dob, Year_join, Year_of_graduation;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["User"] != null)
+        if (!Page.IsPostBack)
         {
-            Student_details = "Hi, " + Session["User"] + " :-) ";
+            if (Session["User"] != null)
+            {
+                string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
+                DataSet ds = new DataSet();
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    string sql = "Select * from Student where Reg_no=" + Session["User"];
+                    using(SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        con.Open();
+                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                reg_no = reader["Reg_no"].ToString();
+                                name = reader["Name"].ToString();
+                                address = reader["Address"].ToString();
+                                Dob = reader["DOB"].ToString();
+                                Year_join = reader["Year_joined"].ToString();
+                                Year_of_graduation = reader["Year_to_graduate"].ToString();
+                                Table1.Visible = true;
+                            }
+
+                        }
+                    }
+                }
+                
+                Student_details = "STUDENT DETAILS";
+            }    
+            else{
+                Student_details = "LOGIN TO VIEW DETAILS";
+            }
+            this.DataBind();
         }
-        else
-        {
-            Student_details = "To view your details, please log in!";
-        }
-        this.DataBind();
     }
 
     protected void add_courses_Click(object sender, EventArgs e)

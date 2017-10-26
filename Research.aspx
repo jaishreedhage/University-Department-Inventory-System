@@ -4,7 +4,7 @@
     <style type="text/css">
         .nf-r2 {
           font-family: Roboto, serif;
-          font-size: 20px;
+          font-size: 22px;
           line-height: 38px;
           font-weight:  normal;
           font-style: italic;
@@ -25,7 +25,7 @@
             <div class="row" >
                 <div class="col-lg-6 col-lg-offset-3" style="margin-top:50px">
                     <asp:SqlDataSource ID="research" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="SELECT [Department], [Faculty_name], [Status], [Details] FROM [Research] ORDER BY [Department], [Faculty_name], [Status]" ProviderName="System.Data.SqlClient" />
-                    <asp:GridView ID="GridView1" runat="server" DataSourceID="research" Width="100%" AutoGenerateColumns="False"  AllowPaging="True"  AllowSorting="True" PageSize="2">
+                    <asp:GridView ID="GridView1" runat="server" DataSourceID="research" Width="100%" AutoGenerateColumns="False"  AllowPaging="True"  AllowSorting="True" PageSize="2" CellPadding="-1">
                         <Columns>
                             <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" />
                             <asp:BoundField DataField="Faculty_name" HeaderText="Name of Faculty" SortExpression="Faculty_name"/>
