@@ -76,7 +76,7 @@
                         </div>
                         <div class="row" style="margin-top:20px">
                             <div class="col-lg-4 col-lg-offset-4">
-                                <asp:Button ID="add_courses" runat="server" Text="Register my selected courses" class="btn btn-danger"/>
+                                <asp:Button ID="add_courses" runat="server" Text="Register my selected courses" OnClick="add_courses_Click" class="btn btn-danger"/>
                             </div>
                         </div>
                 
@@ -87,6 +87,7 @@
                             <asp:GridView ID="GridView2" runat="server" Height="50px" Width="605px" >
                                 
                             </asp:GridView>
+
                             <asp:GridView ID="GridView3" runat="server" Height="50px" Width="100%" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
                             <EditRowStyle BackColor="#2461BF" />
@@ -100,6 +101,7 @@
                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
+
                         </p>
                     </div>
                 </div> 

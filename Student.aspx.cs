@@ -15,70 +15,32 @@ public partial class Student : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["User"] != null)
-            Student_details = "Hi, "+Session["User"]+" :-) ";
-        else
-            Student_details = "To view your details, please log in!";
-
-        if (!Page.IsPostBack)
         {
-            string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
-            System.Diagnostics.Debug.WriteLine("** " + connectionString + " ***");
-            using (SqlConnection con = new SqlConnection(connectionString))
+            Student_details = "Hi, " + Session["User"] + " :-) ";
+        }
+        else
+        {
+            Student_details = "To view your details, please log in!";
+        }
+        this.DataBind();
+    }
+
+    protected void add_courses_Click(object sender, EventArgs e)
+    {
+        foreach (GridViewRow row in GridView1.Rows)
+        {
+            System.Diagnostics.Debug.WriteLine("HELL YA");
+            if (row.RowType == DataControlRowType.DataRow)
             {
-                string sql = "SELECT * FROM Course";
-                using (SqlCommand cmd = new SqlCommand(sql, con))
+                CheckBox chkRow = (row.Cells[0].FindControl("CheckBox1") as CheckBox);
+                if (chkRow.Checked)
                 {
-                    System.Diagnostics.Debug.WriteLine(con);
-                    con.Open();
-                    System.Diagnostics.Debug.WriteLine("Method1");
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds, "Course");
-                        //GridView1.DataSource = ds;
-                        //GridView2.DataSource = ds;
-                        //this.DataBind();
-                    }
-                    cmd.CommandText = "SELECT * FROM Members";
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        DataSet ds = new DataSet();
-                        adapter.Fill(ds, "Course1");
-                        GridView2.DataSource = ds.Tables["Course1"];
-                        this.DataBind();
-                    }
-                    /*using (SqlDataReader adapter = cmd.ExecuteReader())
-                    {
-                        //DataSet ds = new DataSet();
-                        //adapter.Fill(ds, "Course");
-                        GridView2.DataSource = adapter;
-                        this.DataBind();
-                    }*/
-                    
+                    string name = row.Cells[1].Text;
+                    //string country = (row.Cells[2].FindControl("lblCountry") as Label).Text;
+                    System.Diagnostics.Debug.WriteLine("Oh yaa Im selected " + chkRow);
                 }
-                
             }
-
-            /*using (SqlConnection con2 = new SqlConnection(connectionString))
-            {
-                string sql = "SELECT * FROM Course";
-                using (SqlCommand cmd2 = new SqlCommand(sql, con2))
-                {
-                    System.Diagnostics.Debug.WriteLine(con2);
-                    con2.Open();
-
-                    using (SqlDataReader adapter = cmd2.ExecuteReader())
-                    {
-                        //DataSet ds = new DataSet();
-                        //adapter.Fill(ds, "Course");
-                        GridView1.DataSource = adapter;
-                        GridView1.DataBind();
-                    }
-
-
-                }
-
-            }*/
         }
     }
+
 }
