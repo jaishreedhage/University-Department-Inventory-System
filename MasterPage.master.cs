@@ -22,31 +22,40 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        Button1.ForeColor = System.Drawing.Color.Pink;
+        Button1.BackColor = System.Drawing.Color.White;
+        Button1.Text = "wtf";
+        System.Diagnostics.Debug.WriteLine(Button1.ForeColor.ToString() + " " + Button1.BackColor.ToString());
         Response.Redirect("Student.aspx");
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+        Button2.Font.Strikeout = !Button2.Font.Underline;
         Response.Redirect("Inventory.aspx");
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
+        Button3.ForeColor = System.Drawing.Color.Red;
         Response.Redirect("Research.aspx");
     }
 
     protected void Button4_Click(object sender, EventArgs e)
     {
+        Button4.ForeColor = System.Drawing.Color.Red;
         Response.Redirect("People.aspx");
     }
 
     protected void Button5_Click(object sender, EventArgs e)
     {
+        Button5.ForeColor = System.Drawing.Color.Red;
         Response.Redirect("About.aspx");
     }
 
     protected void Button6_Click(object sender, EventArgs e)
     {
+        Button6.ForeColor = System.Drawing.Color.Red;
         Response.Redirect("EditDetails.aspx");
     }
     protected void Button7_Click(object sender, EventArgs e)

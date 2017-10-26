@@ -37,12 +37,12 @@
                 </div>
                 <div class="container-fluid" style="background-color:black; margin-left:80px" >
                     <div class="col-lg-8 col-lg-offset-2">
-                        <asp:Button ID="Button1" runat="server" class="btn navbar-btn" BackColor="Black"  OnClick="Button1_Click" Text="STUDENT INFORMATION" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>
-                        <asp:Button ID="Button2" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button2_Click" Text="INVENTORY" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>
-                        <asp:Button ID="Button3" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button3_Click" Text="RESEARCH" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>
-                        <asp:Button ID="Button4" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button4_Click" Text="PEOPLE" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>
-                        <asp:Button ID="Button5" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button5_Click" Text="ABOUT" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>
-                        <asp:Button ID="Button6" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button6_Click" Text="EDIT DETAILS" ForeColor="White" style="margin-left:40px" Font-Bold="True"/>
+                        <asp:Button ID="Button1" runat="server" class="btn navbar-btn" BackColor="Black"  OnClick="Button1_Click" Text="STUDENT INFORMATION" ForeColor="White" style="margin-left:40px" Font-Bold="True" />
+                        <asp:Button ID="Button2" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button2_Click" Text="INVENTORY" ForeColor="White" style="margin-left:40px" Font-Bold="True" />
+                        <asp:Button ID="Button3" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button3_Click" Text="RESEARCH" ForeColor="White" style="margin-left:40px" Font-Bold="True" />
+                        <asp:Button ID="Button4" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button4_Click" Text="PEOPLE" ForeColor="White" style="margin-left:40px" Font-Bold="True" />
+                        <asp:Button ID="Button5" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button5_Click" Text="ABOUT" ForeColor="White" style="margin-left:40px" Font-Bold="True" />
+                        <asp:Button ID="Button6" runat="server" class="btn navbar-btn" BackColor="Black" BorderStyle="None" OnClick="Button6_Click" Text="EDIT DETAILS" ForeColor="White" style="margin-left:40px" Font-Bold="True" />
                     </div>
                 </div>
             </nav>

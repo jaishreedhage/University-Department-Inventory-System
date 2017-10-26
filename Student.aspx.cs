@@ -16,7 +16,7 @@ public partial class Student : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            if (Session["User"] != null)
+            if (Session["User"] != null && Session["Member"].ToString() == "Student")
             {
                 string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
                 DataSet ds = new DataSet();

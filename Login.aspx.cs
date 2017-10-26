@@ -40,6 +40,7 @@ public partial class Login : System.Web.UI.Page
                     if (reader.Read())
                     {
                         Session["User"] = TextBox1.Text;
+                        Session["Member"] = DropDownList1.SelectedItem.Text;
                         if (ViewState["PreviousPage"] != null)  //Check if the ViewState contains Previous page URL
                         {
                             Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to Previous page by retrieving the PreviousPage Url from ViewState.

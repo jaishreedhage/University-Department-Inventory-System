@@ -42,10 +42,10 @@
             <div class="row form-group">
                 <div class="col-sm-4 col-sm-offset-4 text-center">
                     <div class="col-sm-8 col-sm-offset-2 text-center">
-                        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="width:100%; height:35px">
+                        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true" style="width:100%; height:35px">
                             <asp:ListItem>Choose member type..</asp:ListItem>
                             <asp:ListItem>Student</asp:ListItem>
-                            <asp:ListItem>Office</asp:ListItem>
+                            <asp:ListItem>Administrator</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
