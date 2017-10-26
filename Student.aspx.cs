@@ -37,6 +37,7 @@ public partial class Student : System.Web.UI.Page
                                 Year_join = reader["Year_joined"].ToString();
                                 Year_of_graduation = reader["Year_to_graduate"].ToString();
                                 Table1.Visible = true;
+                                Button1.Visible = true;
                             }
 
                         }
@@ -70,4 +71,8 @@ public partial class Student : System.Web.UI.Page
         }
     }
 
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //need to add code for fetching courses registered and cgpa thing
+    }
 }

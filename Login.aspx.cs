@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 
 public partial class Login : System.Web.UI.Page
 {
+    protected string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack) //check if the webpage is loaded for the first time.
@@ -24,22 +26,42 @@ public partial class Login : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Session["User"] = TextBox1.Text;
-        if (ViewState["PreviousPage"] != null)  //Check if the ViewState 
-                                                //contains Previous page URL
+        string sql = "SELECT * FROM Members WHERE Username=@user and Password=@pswd and Member=@mem";
+        using (SqlConnection con = new SqlConnection(connectionString))
         {
-            Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to 
-                                                                    //Previous page by retrieving the PreviousPage Url from ViewState.
+            using(SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@user", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@pswd", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@mem", DropDownList1.SelectedItem.Text);
+                con.Open();
+                using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Session["User"] = TextBox1.Text;
+                        if (ViewState["PreviousPage"] != null)  //Check if the ViewState contains Previous page URL
+                        {
+                            Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to Previous page by retrieving the PreviousPage Url from ViewState.
+                        }
+                        else
+                        {
+                            Response.Redirect("About.aspx");
+                        }
+                    }
+                    else
+                    {
+                        Label2.Text = "Wrong username / password";
+                    }
+                }
+            }
         }
-        else
-        {
-            Response.Redirect("About.aspx");
-        }
+            
+                
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
         SqlConnection con = new SqlConnection(connectionString);
         string sql = "INSERT INTO Members(Username,Password,Member) VALUES('" +TextBox1.Text+"','"+TextBox2.Text+"','"+DropDownList1.SelectedItem.Text+"')";
         SqlCommand cmd = new SqlCommand(sql, con);
@@ -63,5 +85,15 @@ public partial class Login : System.Web.UI.Page
                 DropDownList1.SelectedIndex = 0;
             }
         }
+    }
+
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+        Label2.Text = "";
+    }
+
+    protected void TextBox2_TextChanged(object sender, EventArgs e)
+    {
+        Label2.Text = "";
     }
 }

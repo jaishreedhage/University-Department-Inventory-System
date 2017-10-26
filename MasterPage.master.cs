@@ -12,6 +12,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         if (!IsPostBack) //check if the webpage is loaded for the first time.
         {
             ViewState["PreviousPage"] = Request.UrlReferrer;//Saves the Previous page url in ViewState
+            if (Session["User"] != null)
+            {
+                Login_Signup.Text = "Hi, " + Session["User"];
+                Login_Signup.Enabled = false;
+            }
         }
     }
 
@@ -52,6 +57,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Button8_Click(object sender, EventArgs e)
     {
         Session["User"] = null;
+        Response.Redirect("About.aspx");
         /*if (ViewState["PreviousPage"] != null)  //Check if the ViewState 
                                                 //contains Previous page URL
         {

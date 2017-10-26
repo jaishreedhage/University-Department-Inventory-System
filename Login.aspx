@@ -25,14 +25,17 @@
             <div class="row form-group">
                 <div class="col-sm-4 col-sm-offset-4 text-center">
                     <div class="col-sm-8 col-sm-offset-2 text-center">
-                        <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Enter username"></asp:TextBox>
+                        
+                        <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Enter username" OnTextChanged="TextBox1_TextChanged" AutoPostBack="true"></asp:TextBox>
+                        
                     </div>
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-4 col-sm-offset-4 text-center">
                     <div class="col-sm-8 col-sm-offset-2 text-center">
-                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Enter password"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Enter password" OnTextChanged="TextBox2_TextChanged" AutoPostBack="true"></asp:TextBox>
+                        
                     </div>
                 </div>
             </div>
@@ -60,6 +63,13 @@
                 <div class="col-sm-4 col-sm-offset-4 text-center">
                     <div class="col-sm-8 col-sm-offset-2 text-center">
                         <asp:Button ID="Button2" runat="server" Text="CREATE NEW ACCOUNT" class="btn btn-danger btn-block"  OnClick="Button2_Click"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4 text-center">
+                    <div class="col-sm-8 col-sm-offset-2 text-center">
+                        <asp:Label ID="Label2" runat="server" Text="" ForeColor="Red" Font-Bold="True" Font-Size="Medium"/>
                     </div>
                 </div>
             </div>

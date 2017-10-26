@@ -89,7 +89,7 @@
                         </div>
                         <div class="row" style="margin-top:20px">
                             <div class="col-lg-4 col-lg-offset-4">
-                                <asp:Button ID="add_courses" runat="server" Text="Register my selected courses" OnClick="add_courses_Click" class="btn btn-danger"/>
+                                <asp:Button ID="add_courses" runat="server" Text="REGISTER SELECTED COURSES" OnClick="add_courses_Click" class="btn btn-success"/>
                             </div>
                         </div>
                 
@@ -98,7 +98,7 @@
                         <p class="text-center nf-r1">
                             <%# Student_details %>
                         </p> 
-                        <div class="row text-center">
+                        <div class="row">
                             <div class="col-lg-6 col-lg-offset-3">
                                 <asp:Table ID="Table1" runat="server" Width="270px" Visible="false" style="margin-top:20px; margin-left:35px">
                                     <asp:TableRow ID="tr1" runat="server">
@@ -128,7 +128,11 @@
                                 </asp:Table>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-lg-4 col-lg-offset-4">
+                                <asp:Button ID="Button1" runat="server" Text="VIEW MORE" class="btn btn-primary btn-block" Visible="false" style=" margin-top: 20px" OnClick="Button1_Click"/>
+                            </div>
+                        </div>
                         <asp:GridView ID="GridView3" runat="server" Height="50px" Width="100%" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
                             <EditRowStyle BackColor="#2461BF" />
