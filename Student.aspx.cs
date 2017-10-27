@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 public partial class Student : System.Web.UI.Page
 {
     protected string Student_details, reg_no, name, address, Dob, Year_join, Year_of_graduation;
+    protected string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
+    protected int id = 1965;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -18,7 +20,7 @@ public partial class Student : System.Web.UI.Page
         {
             if (Session["User"] != null && Session["Member"].ToString() == "Student")
             {
-                string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
+                
                 DataSet ds = new DataSet();
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
@@ -38,6 +40,8 @@ public partial class Student : System.Web.UI.Page
                                 Year_of_graduation = reader["Year_to_graduate"].ToString();
                                 Table1.Visible = true;
                                 Button1.Visible = true;
+                                DropDownList1.Visible = true;
+                                Label5.Visible = true;
                             }
 
                         }
@@ -45,9 +49,11 @@ public partial class Student : System.Web.UI.Page
                 }
                 
                 Student_details = "STUDENT DETAILS";
+                add_courses.Enabled = true;
             }    
             else{
                 Student_details = "LOGIN TO VIEW DETAILS";
+                add_courses.Enabled = false;
             }
             this.DataBind();
         }
@@ -60,12 +66,23 @@ public partial class Student : System.Web.UI.Page
             System.Diagnostics.Debug.WriteLine("HELL YA");
             if (row.RowType == DataControlRowType.DataRow)
             {
-                CheckBox chkRow = (row.Cells[0].FindControl("CheckBox1") as CheckBox);
+                CheckBox chkRow = (row.Cells[4].FindControl("CheckBox1") as CheckBox);
                 if (chkRow.Checked)
                 {
-                    string name = row.Cells[1].Text;
-                    //string country = (row.Cells[2].FindControl("lblCountry") as Label).Text;
-                    System.Diagnostics.Debug.WriteLine("Oh yaa Im selected " + chkRow);
+                    string course_id = (row.Cells[2].FindControl("Label1") as Label).Text;
+                    int added = 0;
+                    using (SqlConnection con = new SqlConnection(connectionString))
+                    {
+                        string c_id = (row.Cells[2].FindControl("Label1") as Label).Text;
+                        string sql = "Insert into Registered_courses (Id,Reg_no,CourseID) values ('" + ++id + "','" + Session["User"] + "','" + c_id + "')";
+                        using (SqlCommand cmd = new SqlCommand(sql, con))
+                        {
+                            con.Open();
+                            added = cmd.ExecuteNonQuery();
+                        }
+                    }
+                    
+                    System.Diagnostics.Debug.WriteLine("Oh yaa Im selected " + chkRow + name +" "+added);
                 }
             }
         }
@@ -74,5 +91,20 @@ public partial class Student : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         //need to add code for fetching courses registered and cgpa thing
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            string sql = "Select Registered_courses.CourseID, Course.CourseName, Registered_courses.Status, Registered_courses.Marks, Registered_courses.Grade from Registered_courses inner join Course on Registered_courses.CourseID = Course.CourseID where Reg_no = " + Session["User"] +"and Semester = "+DropDownList1.SelectedItem.Text;
+            DataSet ds = new DataSet();
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                con.Open();
+                using(SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    adapter.Fill(ds, "Details");
+                    GridView2.DataSource = ds.Tables["Details"];
+                    GridView2.DataBind();
+                }
+            }
+        }
     }
 }

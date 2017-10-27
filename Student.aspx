@@ -30,7 +30,7 @@
         <div class="row" style="margin-top:80px">
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         <div class="row text-center nf-r1 glyphicon-bold">
                             COURSES AVAILABLE ARE
                         </div>
@@ -75,7 +75,7 @@
                                             <asp:Label ID="Label4" runat="server" Text='<%# Bind("Credits") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Choose">
                                         <EditItemTemplate>
                                             <asp:CheckBox ID="CheckBox1" runat="server" />
                                         </EditItemTemplate>
@@ -94,7 +94,7 @@
                         </div>
                 
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-7">
                         <p class="text-center nf-r1">
                             <%# Student_details %>
                         </p> 
@@ -131,7 +131,34 @@
                         <div class="row">
                             <div class="col-lg-4 col-lg-offset-4">
                                 <asp:Button ID="Button1" runat="server" Text="VIEW MORE" class="btn btn-primary btn-block" Visible="false" style=" margin-top: 20px" OnClick="Button1_Click"/>
+                                <asp:Label ID="Label5" runat="server" Text="See semester grade sheet" Visible="false"/>
+                                <asp:DropDownList ID="DropDownList1" runat="server" Width="50%" Visible="false">
+                                    <asp:ListItem>7</asp:ListItem>
+                                    <asp:ListItem>6</asp:ListItem>
+                                    <asp:ListItem>5</asp:ListItem>
+                                    <asp:ListItem>4</asp:ListItem>
+                                    <asp:ListItem>3</asp:ListItem>
+                                    <asp:ListItem>2</asp:ListItem>
+                                    <asp:ListItem>1</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
+                        </div>
+                        <div class="row" style="margin-top:40px">
+                            <asp:GridView ID="GridView2" runat="server" Width="100%" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="2" CellPadding="200" CellSpacing="100" Visible="true">
+                                <HeaderStyle Font-Bold="True" />
+                                <PagerStyle  HorizontalAlign="Center" />
+                                <SortedAscendingCellStyle />
+                                <SortedAscendingHeaderStyle />
+                                <SortedDescendingCellStyle />
+                                <SortedDescendingHeaderStyle  />
+                                <Columns>
+                                    <asp:BoundField DataField="CourseID" HeaderText="CourseID" />
+                                    <asp:BoundField DataField="CourseName" HeaderText="CourseName" />
+                                    <asp:BoundField DataField="Status" HeaderText="Status" />
+                                    <asp:BoundField DataField="Marks" HeaderText="Marks" />
+                                    <asp:BoundField DataField="Grade" HeaderText="Grade" />
+                                </Columns>
+                            </asp:GridView>
                         </div>
                         <asp:GridView ID="GridView3" runat="server" Height="50px" Width="100%" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
