@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 public partial class Student : System.Web.UI.Page
 {
-    protected string Student_details, reg_no, name, address, Dob, Year_join, Year_of_graduation;
+    protected string Student_details, reg_no, name, address, Dob, Year_join, Year_of_graduation, Dept;
     protected string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
     //protected static int id = 1976;
 
@@ -38,7 +38,7 @@ public partial class Student : System.Web.UI.Page
                                 Dob = reader["DOB"].ToString();
                                 Year_join = reader["Year_joined"].ToString();
                                 Year_of_graduation = reader["Year_to_graduate"].ToString();
-                                
+                                Dept = reader["Department"].ToString();
                             }
 
                         }
@@ -94,29 +94,32 @@ public partial class Student : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         //need to add code for fetching courses registered and cgpa thing
-        using (SqlConnection con = new SqlConnection(connectionString))
+        if (DropDownList1.SelectedIndex != 0)
         {
-            string sql = "Select Registered_courses.CourseID, Course.CourseName, Registered_courses.Status, Registered_courses.Marks, Registered_courses.Grade from Registered_courses inner join Course on Registered_courses.CourseID = Course.CourseID where Reg_no = " + Session["User"] +"and Semester = "+DropDownList1.SelectedItem.Text;
-            DataSet ds = new DataSet();
-            using (SqlCommand cmd = new SqlCommand(sql, con))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                con.Open();
-                using(SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                string sql = "Select Registered_courses.CourseID, Course.CourseName, Registered_courses.Status, Registered_courses.Marks, Registered_courses.Grade from Registered_courses inner join Course on Registered_courses.CourseID = Course.CourseID where Reg_no = " + Session["User"] + "and Semester = " + DropDownList1.SelectedItem.Text;
+                DataSet ds = new DataSet();
+                using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    adapter.Fill(ds, "Details");
-                    GridView2.DataSource = ds.Tables["Details"];
-                    GridView2.DataBind();
+                    con.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(ds, "Details");
+                        GridView2.DataSource = ds.Tables["Details"];
+                        GridView2.DataBind();
+                    }
+                }
+                if (ds.Tables["Details"].Rows.Count == 0)
+                {
+                    Label6.Text = "Yet to process! Please check later.";
+                    Label6.Visible = true;
+                }
+                else
+                {
+                    Label6.Visible = false;
                 }
             }
-            if (ds.Tables["Details"].Rows.Count == 0)
-            {
-                Label6.Text = "Yet to process! Please check later.";
-                Label6.Visible = true;
-            }
-            else
-            {
-                Label6.Visible = false;
-            }
-        }
+        }      
     }
 }

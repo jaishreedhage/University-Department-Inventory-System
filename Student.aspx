@@ -1,22 +1,6 @@
 ﻿<%@ Page Title="Student Information" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Student.aspx.cs" Inherits="Student" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .nf-r2 {
-          font-family: Roboto, serif;
-          font-size: 22px;
-          line-height: 38px;
-          font-weight: normal;
-          font-style: italic;
-        }
-        .nf-r1 {
-          font-family: Roboto, serif;
-          font-size: 18px;
-          line-height: 38px;
-          font-weight:  normal;
-          font-style: normal;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container-fluid" style="margin-top:50px">
@@ -109,6 +93,10 @@
                                         <asp:TableHeaderCell ID="na_m">NAME : </asp:TableHeaderCell>
                                         <asp:TableCell ID="nam"><%# name %></asp:TableCell>
                                     </asp:TableRow>
+                                    <asp:TableRow ID="TableRow6" runat="server">
+                                        <asp:TableHeaderCell ID="dept_n">DEPARTMENT : </asp:TableHeaderCell>
+                                        <asp:TableCell ID="dept"><%# Dept %></asp:TableCell>
+                                    </asp:TableRow>
                                     <asp:TableRow ID="TableRow2" runat="server">
                                         <asp:TableHeaderCell ID="add_n">ADDRESS : </asp:TableHeaderCell>
                                         <asp:TableCell ID="add"><%# address %></asp:TableCell>
@@ -134,8 +122,8 @@
                                     <div class="col-lg-4 nf-r1">
                                         <b><asp:Label ID="Label5" runat="server" Text="Semester grade sheet : " Visible="false" /></b>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <asp:DropDownList ID="DropDownList1" runat="server" Width="100%" Height="35px" Visible="false">
+                                    <div class="col-lg-4 nf-r1">
+                                        <asp:DropDownList ID="DropDownList1" runat="server" Width="100%" Height="30px" Visible="false" Font-Size="16px">
                                             <asp:ListItem>Choose semester</asp:ListItem>
                                             <asp:ListItem>7</asp:ListItem>
                                             <asp:ListItem>6</asp:ListItem>
