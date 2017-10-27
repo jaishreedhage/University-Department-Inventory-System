@@ -63,29 +63,41 @@ public partial class Login : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        SqlConnection con = new SqlConnection(connectionString);
-        string sql = "INSERT INTO Members(Username,Password,Member) VALUES('" +TextBox1.Text+"','"+TextBox2.Text+"','"+DropDownList1.SelectedItem.Text+"')";
-        SqlCommand cmd = new SqlCommand(sql, con);
-        int inserted = 0;
-        using (con)
+        if (TextBox1.Text.Length!=0 && TextBox2.Text.Length!=0 && DropDownList1.SelectedIndex!=-1)
         {
-            con.Open();
-            try
+            SqlConnection con = new SqlConnection(connectionString);
+            string sql = "INSERT INTO Members(Username,Password,Member) VALUES('" + TextBox1.Text + "','" + TextBox2.Text + "','" + DropDownList1.SelectedItem.Text + "')";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            int inserted = 0;
+            using (con)
             {
-                inserted = cmd.ExecuteNonQuery();
-            }
-            catch(Exception err)
-            {
-                //User already exists
-                System.Diagnostics.Debug.WriteLine("Error in adding user : " + err);
-            }
-            finally
-            {
-                System.Diagnostics.Debug.WriteLine("Entry added "+ inserted);
-                TextBox1.Text = TextBox2.Text = "";
-                DropDownList1.SelectedIndex = 0;
+                con.Open();
+                try
+                {
+                    inserted = cmd.ExecuteNonQuery();
+                }
+                catch (Exception err)
+                {
+                    //User already exists
+                    System.Diagnostics.Debug.WriteLine("Error in adding user : " + err);
+                }
+                finally
+                {
+                    System.Diagnostics.Debug.WriteLine("Entry added " + inserted);
+                    if (inserted == 0)
+                    {
+                        Label2.Text = "Username already exists. Login instead.";
+                    }
+                    TextBox1.Text = TextBox2.Text = "";
+                    DropDownList1.SelectedIndex = 0;
+                }
             }
         }
+        else
+        {
+            Label2.Text = "Enter all details.";
+        }
+        
     }
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)

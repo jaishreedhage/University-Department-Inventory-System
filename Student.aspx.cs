@@ -12,7 +12,7 @@ public partial class Student : System.Web.UI.Page
 {
     protected string Student_details, reg_no, name, address, Dob, Year_join, Year_of_graduation;
     protected string connectionString = WebConfigurationManager.ConnectionStrings["UDIS"].ConnectionString;
-    protected int id = 1965;
+    //protected static int id = 1976;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -38,14 +38,15 @@ public partial class Student : System.Web.UI.Page
                                 Dob = reader["DOB"].ToString();
                                 Year_join = reader["Year_joined"].ToString();
                                 Year_of_graduation = reader["Year_to_graduate"].ToString();
-                                Table1.Visible = true;
-                                Button1.Visible = true;
-                                DropDownList1.Visible = true;
-                                Label5.Visible = true;
+                                
                             }
 
                         }
                     }
+                    Table1.Visible = true;
+                    Button1.Visible = true;
+                    DropDownList1.Visible = true;
+                    Label5.Visible = true;
                 }
                 
                 Student_details = "STUDENT DETAILS";
@@ -70,11 +71,13 @@ public partial class Student : System.Web.UI.Page
                 if (chkRow.Checked)
                 {
                     string course_id = (row.Cells[2].FindControl("Label1") as Label).Text;
+                    Random random = new Random();
                     int added = 0;
+                    int id = random.Next(100, 5000);
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
                         string c_id = (row.Cells[2].FindControl("Label1") as Label).Text;
-                        string sql = "Insert into Registered_courses (Id,Reg_no,CourseID) values ('" + ++id + "','" + Session["User"] + "','" + c_id + "')";
+                        string sql = "Insert into Registered_courses (Id,Reg_no,CourseID,Status,Semester) values ('" + ++id + "','" + Session["User"] + "','" + c_id + "','Registered','7')";
                         using (SqlCommand cmd = new SqlCommand(sql, con))
                         {
                             con.Open();
@@ -104,6 +107,15 @@ public partial class Student : System.Web.UI.Page
                     GridView2.DataSource = ds.Tables["Details"];
                     GridView2.DataBind();
                 }
+            }
+            if (ds.Tables["Details"].Rows.Count == 0)
+            {
+                Label6.Text = "Yet to process! Please check later.";
+                Label6.Visible = true;
+            }
+            else
+            {
+                Label6.Visible = false;
             }
         }
     }

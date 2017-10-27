@@ -13,7 +13,7 @@
           font-family: Roboto, serif;
           font-size: 18px;
           line-height: 38px;
-          font-weight:  bold;
+          font-weight:  normal;
           font-style: normal;
         }
     </style>
@@ -31,8 +31,8 @@
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="row">
                     <div class="col-sm-5">
-                        <div class="row text-center nf-r1 glyphicon-bold">
-                            COURSES AVAILABLE ARE
+                        <div class="row text-center nf-r1">
+                            <b>COURSES AVAILABLE ARE</b>
                         </div>
                         <div class="row" style="margin-top:50px">
                             <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GridLines="None" DataKeyNames="CourseID" DataSourceID="SqlDataSource1" PageSize="2" CellPadding="200" CellSpacing="100">
@@ -96,7 +96,7 @@
                     </div>
                     <div class="col-sm-7">
                         <p class="text-center nf-r1">
-                            <%# Student_details %>
+                            <b><%# Student_details %></b>
                         </p> 
                         <div class="row">
                             <div class="col-lg-6 col-lg-offset-3">
@@ -129,36 +129,50 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-lg-offset-4">
-                                <asp:Button ID="Button1" runat="server" Text="VIEW MORE" class="btn btn-primary btn-block" Visible="false" style=" margin-top: 20px" OnClick="Button1_Click"/>
-                                <asp:Label ID="Label5" runat="server" Text="See semester grade sheet" Visible="false"/>
-                                <asp:DropDownList ID="DropDownList1" runat="server" Width="50%" Visible="false">
-                                    <asp:ListItem>7</asp:ListItem>
-                                    <asp:ListItem>6</asp:ListItem>
-                                    <asp:ListItem>5</asp:ListItem>
-                                    <asp:ListItem>4</asp:ListItem>
-                                    <asp:ListItem>3</asp:ListItem>
-                                    <asp:ListItem>2</asp:ListItem>
-                                    <asp:ListItem>1</asp:ListItem>
-                                </asp:DropDownList>
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div class="row text-center" style=" margin-top: 30px">
+                                    <div class="col-lg-4 nf-r1">
+                                        <b><asp:Label ID="Label5" runat="server" Text="Semester grade sheet : " Visible="false" /></b>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:DropDownList ID="DropDownList1" runat="server" Width="100%" Height="35px" Visible="false">
+                                            <asp:ListItem>Choose semester</asp:ListItem>
+                                            <asp:ListItem>7</asp:ListItem>
+                                            <asp:ListItem>6</asp:ListItem>
+                                            <asp:ListItem>5</asp:ListItem>
+                                            <asp:ListItem>4</asp:ListItem>
+                                            <asp:ListItem>3</asp:ListItem>
+                                            <asp:ListItem>2</asp:ListItem>
+                                            <asp:ListItem>1</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <asp:Button ID="Button1" runat="server" Text="SHOW" class="btn btn-primary btn-block" Visible="false" OnClick="Button1_Click"/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row" style="margin-top:40px">
-                            <asp:GridView ID="GridView2" runat="server" Width="100%" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="2" CellPadding="200" CellSpacing="100" Visible="true">
-                                <HeaderStyle Font-Bold="True" />
-                                <PagerStyle  HorizontalAlign="Center" />
-                                <SortedAscendingCellStyle />
-                                <SortedAscendingHeaderStyle />
-                                <SortedDescendingCellStyle />
-                                <SortedDescendingHeaderStyle  />
-                                <Columns>
-                                    <asp:BoundField DataField="CourseID" HeaderText="CourseID" />
-                                    <asp:BoundField DataField="CourseName" HeaderText="CourseName" />
-                                    <asp:BoundField DataField="Status" HeaderText="Status" />
-                                    <asp:BoundField DataField="Marks" HeaderText="Marks" />
-                                    <asp:BoundField DataField="Grade" HeaderText="Grade" />
-                                </Columns>
-                            </asp:GridView>
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div class="row text-center nf-r1">
+                                    <asp:Label ID="Label6" runat="server" Text="" Visible="false"></asp:Label>
+                                </div>
+                                <asp:GridView ID="GridView2" runat="server" Width="100%" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="2" Visible="true">
+                                    <HeaderStyle Font-Bold="True" />
+                                    <PagerStyle  HorizontalAlign="Center" />
+                                    <SortedAscendingCellStyle />
+                                    <SortedAscendingHeaderStyle />
+                                    <SortedDescendingCellStyle />
+                                    <SortedDescendingHeaderStyle  />
+                                    <Columns>
+                                        <asp:BoundField DataField="CourseID" HeaderText="CourseID" />
+                                        <asp:BoundField DataField="CourseName" HeaderText="CourseName" />
+                                        <asp:BoundField DataField="Status" HeaderText="Status" />
+                                        <asp:BoundField DataField="Marks" HeaderText="Marks" />
+                                        <asp:BoundField DataField="Grade" HeaderText="Grade" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>          
                         </div>
                         <asp:GridView ID="GridView3" runat="server" Height="50px" Width="100%" GridLines="None">
                             <AlternatingRowStyle BackColor="White" />
