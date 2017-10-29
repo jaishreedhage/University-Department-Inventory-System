@@ -37,8 +37,81 @@ public partial class EditDetails : System.Web.UI.Page
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
                 con.Open();
-                added = cmd.ExecuteNonQuery();
+                try
+                {
+                    added = cmd.ExecuteNonQuery();
+                }
+                catch(Exception err)
+                {
+                    Label8.Text = "Student already exists!";
+                }
+                finally { }
             }
         }
+        if (added != 0)
+        {
+            Label8.Text = "Student added";
+        }
+    }
+
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        int added = 0;
+        Random random = new Random();
+        int r_id = random.Next(999,99999);
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            string sql = "Insert into Research (Id,Department,Faculty_name,Status,Details) values ('" + r_id + "','" + TextBox8.Text + "','" + TextBox9.Text + "','" + TextBox10.Text + "','" + TextBox11.Text + "')";
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                con.Open();
+                try
+                {
+                    added = cmd.ExecuteNonQuery();
+                }
+                catch (Exception err)
+                {
+                    Label8.Text = "Research paper already exists!";
+                }
+                finally { }
+            }
+        }
+        if (added != 0)
+        {
+            Label8.Text = "Research paper added";
+        }
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Panel1.Visible = true;
+        Panel2.Visible = false;
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Panel2.Visible = true;
+        Panel1.Visible = false;
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Button4.Visible = true;
+        Button4.Text = "ADD STUDENT";
+        Button5.Visible = true;
+        Button5.Text = "SEARCH EXISITING STUDENT";
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Button4.Visible = true;
+        Button4.Text = "ADD RESEARCH PAPER";
+        Button5.Visible = true;
+        Button5.Text = "SEARCH RESEARCH PAPER";
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+
     }
 }
