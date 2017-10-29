@@ -15,13 +15,45 @@
             </div>
             <div class="row" >
                 <div class="col-lg-6 col-lg-offset-3" style="margin-top:50px">
-                    <asp:SqlDataSource ID="research" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="SELECT [Department], [Faculty_name], [Status], [Details] FROM [Research] ORDER BY [Department], [Faculty_name], [Status]" ProviderName="System.Data.SqlClient" />
-                    <asp:GridView ID="GridView1" runat="server" DataSourceID="research" Width="100%" AutoGenerateColumns="False"  AllowPaging="True"  AllowSorting="True" PageSize="2" CellPadding="-1">
+                    <asp:SqlDataSource ID="research" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="SELECT * FROM Research ORDER BY Department, Faculty_name, Status" ProviderName="System.Data.SqlClient" />
+                    <asp:GridView ID="GridView1" runat="server" DataSourceID="research" AutoGenerateColumns="False" width="60%" AllowPaging="True"  AllowSorting="True" PageSize="2">
                         <Columns>
-                            <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" />
-                            <asp:BoundField DataField="Faculty_name" HeaderText="Name of Faculty" SortExpression="Faculty_name"/>
-                            <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status"/>
-                            <asp:BoundField DataField="Details" HeaderText="Extra details" SortExpression="Details"/>
+                            <asp:TemplateField HeaderText="Department" SortExpression="Department">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Department") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Department") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ControlStyle Width="200px" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Name of Faculty" SortExpression="Faculty_name">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Faculty_name") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("Faculty_name") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ControlStyle Width="200px" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Status") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ControlStyle Width="200px" />
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Extra details" SortExpression="Details">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Details") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Details") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ControlStyle Width="200px" />
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
