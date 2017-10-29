@@ -85,32 +85,83 @@ public partial class EditDetails : System.Web.UI.Page
     protected void Button4_Click(object sender, EventArgs e)
     {
         Panel1.Visible = true;
+        Panel3.Visible = false;
         Panel2.Visible = false;
+        Panel4.Visible = false;
     }
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Panel2.Visible = true;
+        Panel3.Visible = true;
         Panel1.Visible = false;
+        Panel2.Visible = false;
+        Panel4.Visible = false;
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
         Button4.Visible = true;
-        Button4.Text = "ADD STUDENT";
         Button5.Visible = true;
-        Button5.Text = "SEARCH EXISITING STUDENT";
+        Button10.Visible = false;
+        Button11.Visible = false;
+        Button12.Visible = false;
+        Button13.Visible = false;
+        Panel2.Visible = false;
+        Panel4.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Button4.Visible = true;
-        Button4.Text = "ADD RESEARCH PAPER";
-        Button5.Visible = true;
-        Button5.Text = "SEARCH RESEARCH PAPER";
+        Button4.Visible = false;
+        Button5.Visible = false;
+        Button10.Visible = true;
+        Button11.Visible = true;
+        Button12.Visible = false;
+        Button13.Visible = false;
+        Panel2.Visible = false;
+        Panel4.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
     }
 
     protected void Button3_Click(object sender, EventArgs e)
+    {
+        Button4.Visible = false;
+        Button5.Visible = false;
+        Button10.Visible = false;
+        Button11.Visible = false;
+        Button12.Visible = true;
+        Button13.Visible = true;
+        Panel2.Visible = false;
+        Panel4.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
+    }
+
+    protected void Button10_Click(object sender, EventArgs e)
+    {
+        Panel2.Visible = true;
+        Panel4.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
+    }
+
+    protected void Button11_Click(object sender, EventArgs e)
+    {
+        Panel4.Visible = true;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
+    }
+
+    protected void Button12_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button13_Click(object sender, EventArgs e)
     {
 
     }

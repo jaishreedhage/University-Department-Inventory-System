@@ -21,8 +21,12 @@
                 </div>
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="row">
-                        <asp:Button ID="Button4" runat="server" Text="ADD NEW" class="btn btn-danger" OnClick="Button4_Click" Visible="false"/>
-                        <asp:Button ID="Button5" runat="server" Text="SEARCH FOR EXISITING" OnClick="Button5_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
+                        <asp:Button ID="Button4" runat="server" Text="ADD NEW STUDENT" class="btn btn-danger" OnClick="Button4_Click" Visible="false"/>
+                        <asp:Button ID="Button5" runat="server" Text="SEARCH FOR EXISITING STUDENT" OnClick="Button5_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
+                        <asp:Button ID="Button10" runat="server" Text="ADD NEW RESEARCH PAPER" class="btn btn-danger" OnClick="Button10_Click" Visible="false"/>
+                        <asp:Button ID="Button11" runat="server" Text="SEARCH FOR EXISITING RESEARCH PAPER" OnClick="Button11_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
+                        <asp:Button ID="Button12" runat="server" Text="ADD NEW" class="btn btn-danger" OnClick="Button12_Click" Visible="false"/>
+                        <asp:Button ID="Button13" runat="server" Text="SEARCH FOR EXISITING" OnClick="Button13_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
                     </div>
                     <div class="row" style="margin-top:30px">
                         <asp:Panel runat="server" ID="Panel1" Width="100%" Visible="false">
@@ -156,50 +160,103 @@
                                 </div>
                             </div>
                         </asp:Panel>
-                        <asp:Panel runat="server" ID="Panel3" Width="100%" Visible="true">
+                        <asp:Panel runat="server" ID="Panel3" Width="100%" Visible="false">
                             <div class="row">
-                                <div class="col-lg-offset-2 col-lg-10 nf-r1">
+                                <div class="nf-r1">
                                     <div class="row ">
-                                        <div class="col-lg-2">
+                                        <div class="col-lg-2 col-lg-offset-2">
                                             <asp:Label ID="Label13" runat="server" Text="SEARCH STUDENT" class="nf-r1" />
                                         </div>
-                                        <div class="col-lg-4 col-lg-offset-1 form-group">
-                                            <asp:TextBox ID="TextBox12" runat="server" class="form-control"></asp:TextBox>
+                                        <div class="col-lg-3 form-group">
+                                            <asp:TextBox ID="TextBox12" runat="server" class="form-control" placeholder="Registration number"></asp:TextBox>
                                         </div>
-                                        <div class="col-lg-4 col-lg-1">
+                                        <div class="col-lg-5 ">
                                             <asp:Button ID="Button8" runat="server" Text="SEARCH" class="btn btn-primary"/>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-10 col-lg-offset-1">
-                                            <asp:SqlDataSource ID="ds" runat="server" ConnectionString="<%$ConnectionStrings:UDIS %>" SelectCommand="Select * from Student where Reg_no = @reg">
+                                        <div class="col-lg-8 col-lg-offset-1">
+                                            <asp:SqlDataSource ID="ds" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="Select * from Student where Reg_no = @reg" ProviderName="System.Data.SqlClient" UpdateCommand="Update Student set Name=@Name where Reg_no = @reg">
                                                 <SelectParameters>
                                                     <asp:ControlParameter ControlID="TextBox12" Name="reg" PropertyName="Text" />
                                                 </SelectParameters>
+                                                <UpdateParameters>
+                                                    <asp:ControlParameter ControlID="TextBox12" Name="reg" PropertyName="Text" />
+                                                </UpdateParameters>
                                             </asp:SqlDataSource>
-                                            <asp:GridView ID="GridView1" runat="server" DataSourceID="ds" AutoGenerateColumns="false">
+                                            <asp:GridView ID="GridView1" runat="server" DataSourceID="ds" Font-Size="Smaller" CellSpacing="20" AutoGenerateColumns="False" GridLines="None"  AutoGenerateEditButton="True">
                                                 <Columns>
-                                                    <asp:BoundField DataField="Name" HeaderText="Name" />
-                                                    <asp:BoundField DataField="Address" HeaderText="Address" />
-                                                    <asp:BoundField DataField="DOB" HeaderText="Date of Birth" />
-                                                    <asp:BoundField DataField="Department" HeaderText="Department" />
-                                                    <asp:BoundField DataField="Year_joined" HeaderText="Year joined" />
-                                                    <asp:BoundField DataField="Year_to_graduate" HeaderText="Year to graduate" />
+                                                    <asp:TemplateField HeaderText="Name">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text='<%# Bind("Name") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Address">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Text='<%# Bind("Address") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Address") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="DOB">
+                                                        <EditItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("DOB") %>'></asp:Label>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("DOB") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Department">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Text='<%# Bind("Department") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Department") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="170px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Year_joined">
+                                                        <EditItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Year_joined") %>'></asp:Label>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Year_joined") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="170px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Year_to_graduate">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Text='<%# Bind("Year_to_graduate") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("Year_to_graduate") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="170px" />
+                                                    </asp:TemplateField>
+                                                    
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
+                                        <div class="col-lg-3"></div>
                                     </div>
                                 </div>
                             </div>
                         </asp:Panel>
-                        <asp:Panel runat="server" ID="Panel4" Width="100%" Visible="true">
+                        <asp:Panel runat="server" ID="Panel4" Width="100%" Visible="false">
                             <div class="row">
-                                <div class="col-lg-offset-2 col-lg-10 nf-r1">
-                                    <div class="row ">
-                                        <div class="col-lg-3">
-                                            <asp:Label ID="Label14" runat="server" Text="SEARCH RESEARCH PAPER" class="nf-r1" />
+                                <div class="nf-r1">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-lg-offset-2">
+                                            <asp:Label ID="Label14" runat="server" Text="SEARCH RESEARCH PAPER"/>
                                         </div>
-                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                        <div class="col-lg-3  form-group">
                                             <asp:TextBox ID="TextBox13" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-lg-4">
@@ -207,21 +264,54 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-10 col-lg-offset-1">
+                                        <div class="col-lg-8 col-lg-offset-1">
                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ConnectionStrings:UDIS %>" SelectCommand="Select * from Research" FilterExpression="(Department like '%{0}%') or (Faculty_name like '%{0}%') or (Details like '%{0}%')">
                                                 <FilterParameters>
                                                     <asp:ControlParameter ControlID="TextBox13" Name="Department" Type="String" DefaultValue="rubbish"/>                                             
                                                 </FilterParameters>
                                             </asp:SqlDataSource>
-                                            <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="false">
+                                            <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" GridLines="None" AutoGenerateEditButton="True">
                                                 <Columns>
-                                                    <asp:BoundField DataField="Department" HeaderText="Department" />
-                                                    <asp:BoundField DataField="Faculty_name" HeaderText="Faculty_name" />
-                                                    <asp:BoundField DataField="Status" HeaderText="Status" />
-                                                    <asp:BoundField DataField="Details" HeaderText="Details" />
+                                                    <asp:TemplateField HeaderText="Department">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text='<%# Bind("Department") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Department") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Faculty_name">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Text='<%# Bind("Faculty_name") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Faculty_name") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Status">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Text='<%# Bind("Status") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label3" runat="server"  Text='<%# Bind("Status") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Details">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Text='<%# Bind("Details") %>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Details") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
+                                        <div class="col-lg-3"></div>
                                     </div>                                 
                                 </div>
                             </div>
