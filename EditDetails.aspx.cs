@@ -226,7 +226,30 @@ public partial class EditDetails : System.Web.UI.Page
 
     protected void Button17_Click(object sender, EventArgs e)
     {
-        
+        int added = 0;
+        Random random = new Random();
+        int r_id = random.Next(999, 99999);
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            string sql = "Insert into Grant (Id,Department,Year,University_funds,Miscellaneous_funds) values ('" + r_id + "','" + TextBox14.Text + "','" + TextBox15.Text + "','" + TextBox16.Text + "','" + TextBox17.Text + "')";
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                con.Open();
+                //try
+                //{
+                    added = cmd.ExecuteNonQuery();
+                //}
+                //catch (Exception err)
+                //{
+                    Label20.Text = "Grant for the department in this year already exists!";
+                //}
+                //finally { }
+            }
+        }
+        if (added != 0)
+        {
+            Label8.Text = "Grant added";
+        }
     }
 
     protected void Button18_Click(object sender, EventArgs e)
