@@ -26,7 +26,7 @@
                                         <asp:BoundField DataField="Equipment" HeaderText="Equipment" ReadOnly="True" SortExpression="Equipment" />
                                         <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
                                         <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                                        
+                                        <asp:BoundField DataField="Datetime_updated" HeaderText="DateTime updated" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

@@ -244,7 +244,7 @@
                                             <asp:TextBox ID="TextBox20" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-lg-4"></div>
-                                    </div>                               
+                                    </div>
                                     <div class="row" style="margin-top:30px">
                                         <div class="col-lg-6 col-lg-offset-3">
                                             <asp:Button ID="Button18" runat="server" Text="ADD EQUIPMENT" class="btn btn-primary" OnClick="Button18_Click"/>
@@ -274,7 +274,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-8 col-lg-offset-1">
-                                            <asp:SqlDataSource ID="ds" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="Select * from Student where Reg_no = @reg" ProviderName="System.Data.SqlClient" UpdateCommand="Update Student set Name=@Name where Reg_no = @reg">
+                                            <asp:SqlDataSource ID="ds" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="Select * from Student where Reg_no = @reg" ProviderName="System.Data.SqlClient" UpdateCommand="Update Student set Name=@Name,Address=@Address,Year_to_graduate=@Year_to_graduate,Department=@Department where Reg_no = @reg">
                                                 <SelectParameters>
                                                     <asp:ControlParameter ControlID="TextBox12" Name="reg" PropertyName="Text" />
                                                 </SelectParameters>
@@ -282,7 +282,7 @@
                                                     <asp:ControlParameter ControlID="TextBox12" Name="reg" PropertyName="Text" />
                                                 </UpdateParameters>
                                             </asp:SqlDataSource>
-                                            <asp:GridView ID="GridView1" runat="server" DataSourceID="ds" Font-Size="Smaller" CellSpacing="20" AutoGenerateColumns="False" GridLines="None"  AutoGenerateEditButton="True">
+                                            <asp:GridView ID="GridView1" runat="server" DataSourceID="ds"  CellSpacing="20" AutoGenerateColumns="False" GridLines="None">
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Name">
                                                         <EditItemTemplate>
@@ -338,7 +338,7 @@
                                                         </ItemTemplate>
                                                         <ControlStyle Width="170px" />
                                                     </asp:TemplateField>
-                                                    
+                                                    <asp:CommandField ShowEditButton="True" />
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
@@ -411,6 +411,150 @@
                                         </div>
                                         <div class="col-lg-3"></div>
                                     </div>                                 
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="Panel7" Width="100%" Visible="false">
+                            <div class="row">
+                                <div class="nf-r1">
+                                    <div class="row ">
+                                        <div class="col-lg-2 col-lg-offset-1">
+                                            <asp:Label ID="Label24" runat="server" Text="SEARCH GRANTS" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <asp:TextBox ID="TextBox21" runat="server" class="form-control" placeholder="Department"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <asp:TextBox ID="TextBox22" runat="server" class="form-control" placeholder="Year"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4 ">
+                                            <asp:Button ID="Button19" runat="server" Text="SEARCH" class="btn btn-primary"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-lg-offset-1">
+                                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="SELECT * FROM [Grants] ORDER BY [Department], [Year] DESC" ProviderName="System.Data.SqlClient" UpdateCommand="Update Grants set University_funds=@University_funds, Miscellaneous_funds=@Miscellaneous_funds where Department=@Dept">
+                                                <UpdateParameters>
+                                                    <asp:ControlParameter ControlID="TextBox21" Name="Dept" PropertyName="Text" />
+                                                </UpdateParameters>
+                                            </asp:SqlDataSource>
+                                            <asp:GridView ID="GridView3" DataSourceID="SqlDataSource2" runat="server" AutoGenerateColumns="False" GridLines="None">
+
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Department">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Department") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Department") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Year">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Year") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Year") %>' ></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="University funds">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("University_funds") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("University_funds") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Miscellaneous funds">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Miscellaneous_funds") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Miscellaneous_funds") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ShowEditButton="True" />
+                                                </Columns>
+
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="Panel8" Width="100%" Visible="false">
+                            <div class="row">
+                                <div class="nf-r1">
+                                    <div class="row ">
+                                        <div class="col-lg-2 col-lg-offset-1">
+                                            <asp:Label ID="Label26" runat="server" Text="SEARCH EQUIPMENT" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <asp:TextBox ID="TextBox23" runat="server" class="form-control" placeholder="EQUIPMENT"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4 ">
+                                            <asp:Button ID="Button20" runat="server" Text="SEARCH" class="btn btn-primary"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-lg-offset-1">
+                                            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="SELECT * FROM [Inventory] WHERE ([Equipment] = @Equipment) ORDER BY [Datetime_updated] DESC" ProviderName="System.Data.SqlClient" UpdateCommand="Update Inventory set Location=@Location,Quantity=@Quantity,Datetime_Updated=default where Equipment=@Equipment">
+                                                <SelectParameters>
+                                                    <asp:ControlParameter ControlID="TextBox23" Name="Equipment" PropertyName="Text" />
+                                                </SelectParameters>
+                                                <UpdateParameters>
+                                                    <asp:ControlParameter ControlID="TextBox23" Name="Equipment" PropertyName="Text" />
+                                                </UpdateParameters>
+                                            </asp:SqlDataSource>
+                                            <asp:GridView ID="GridView4" DataSourceID="SqlDataSource3" runat="server" AutoGenerateColumns="False" GridLines="None">
+                                                
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Equipment">
+                                                        <EditItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Equipment") %>'></asp:Label>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Equipment") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Location">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Location") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Location") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Quantity">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Quantity") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="DateTime Updated">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Datetime_updated") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Datetime_updated") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="200px" />
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ShowEditButton="True" />
+                                                </Columns>
+                                                
+                                            </asp:GridView>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </asp:Panel>
