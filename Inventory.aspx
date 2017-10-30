@@ -39,7 +39,7 @@
                         </div>
                         <div class="row" style="margin-top:50px">
                             <div class="col-lg-11 col-lg-offset-1">
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(localdb)\MSSQLlocalDB;Initial Catalog=DepartmentDB;Integrated Security=True" SelectCommand="SELECT * FROM [Dept_grants] ORDER BY [Department], [Year] DESC, [University_funds]" ProviderName="System.Data.SqlClient" />                        
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(localdb)\MSSQLlocalDB;Initial Catalog=DepartmentDB;Integrated Security=True" SelectCommand="SELECT * FROM [Grants] ORDER BY [Department], [Year] DESC, [University_funds]" ProviderName="System.Data.SqlClient" />                        
                                 <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" Width="100%" AutoGenerateColumns="False" GridLines="None" AllowSorting="True" AllowPaging="true" PageSize="5">
                                     <Columns>
                                         <asp:BoundField DataField="Department" HeaderText="Department" ReadOnly="True" SortExpression="Department" />

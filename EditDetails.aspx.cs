@@ -231,7 +231,7 @@ public partial class EditDetails : System.Web.UI.Page
         int r_id = random.Next(999, 99999);
         using (SqlConnection con = new SqlConnection(connectionString))
         {
-            string sql = "Insert into Dept_grants (Id,Department,Year,University_funds,Miscellaneous_funds) values ('" + r_id + "','" + TextBox14.Text + "','" + TextBox15.Text + "','" + TextBox16.Text + "','" + TextBox17.Text + "')";
+            string sql = "Insert into Grants (Department,Year,University_funds,Miscellaneous_funds) values ('" + TextBox14.Text + "','" + TextBox15.Text + "','" + TextBox16.Text + "','" + TextBox17.Text + "')";
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
                 con.Open();
