@@ -84,22 +84,28 @@ public partial class EditDetails : System.Web.UI.Page
 
     protected void Button4_Click(object sender, EventArgs e)
     {
+        Panel5.Visible = false;
         Panel1.Visible = true;
         Panel3.Visible = false;
         Panel2.Visible = false;
         Panel4.Visible = false;
+        Panel6.Visible = false;
     }
 
     protected void Button5_Click(object sender, EventArgs e)
     {
+        Panel5.Visible = false;
         Panel3.Visible = true;
         Panel1.Visible = false;
         Panel2.Visible = false;
         Panel4.Visible = false;
+        Panel6.Visible = false;
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        Button16.Visible = false;
+        Button15.Visible = false;
         Button4.Visible = true;
         Button5.Visible = true;
         Button10.Visible = false;
@@ -110,10 +116,14 @@ public partial class EditDetails : System.Web.UI.Page
         Panel4.Visible = false;
         Panel3.Visible = false;
         Panel1.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = false;
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+        Button16.Visible = false;
+        Button15.Visible = false;
         Button4.Visible = false;
         Button5.Visible = false;
         Button10.Visible = true;
@@ -124,10 +134,14 @@ public partial class EditDetails : System.Web.UI.Page
         Panel4.Visible = false;
         Panel3.Visible = false;
         Panel1.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = false;
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
+        Button16.Visible = false;
+        Button15.Visible = false;
         Button4.Visible = false;
         Button5.Visible = false;
         Button10.Visible = false;
@@ -138,10 +152,14 @@ public partial class EditDetails : System.Web.UI.Page
         Panel4.Visible = false;
         Panel3.Visible = false;
         Panel1.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = false;
     }
 
     protected void Button10_Click(object sender, EventArgs e)
     {
+        Panel6.Visible = false;
+        Panel5.Visible = false;
         Panel2.Visible = true;
         Panel4.Visible = false;
         Panel3.Visible = false;
@@ -150,18 +168,68 @@ public partial class EditDetails : System.Web.UI.Page
 
     protected void Button11_Click(object sender, EventArgs e)
     {
+        Panel5.Visible = false;
         Panel4.Visible = true;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
+        Panel6.Visible = false;
+    }
+
+    protected void Button12_Click(object sender, EventArgs e)
+    {
+        Panel5.Visible = false;
+        Panel6.Visible = true;
+        Panel4.Visible = false;
         Panel2.Visible = false;
         Panel3.Visible = false;
         Panel1.Visible = false;
     }
 
-    protected void Button12_Click(object sender, EventArgs e)
+    protected void Button13_Click(object sender, EventArgs e)
     {
 
     }
 
-    protected void Button13_Click(object sender, EventArgs e)
+    protected void Button14_Click(object sender, EventArgs e)
+    {
+        Button16.Visible = true;
+        Button15.Visible = true;
+        Button4.Visible = false;
+        Button5.Visible = false;
+        Button10.Visible = false;
+        Button11.Visible = false;
+        Button12.Visible = false;
+        Button13.Visible = false;
+        Panel2.Visible = false;
+        Panel4.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
+        Panel5.Visible = false;
+        Panel6.Visible = false;
+    }
+
+    protected void Button15_Click(object sender, EventArgs e)
+    {
+        Panel5.Visible = true;
+        Panel4.Visible = false;
+        Panel2.Visible = false;
+        Panel3.Visible = false;
+        Panel1.Visible = false;
+        Panel6.Visible = false;
+    }
+
+    protected void Button16_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button17_Click(object sender, EventArgs e)
+    {
+        
+    }
+
+    protected void Button18_Click(object sender, EventArgs e)
     {
 
     }

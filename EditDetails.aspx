@@ -18,6 +18,7 @@
                     <asp:Button ID="Button1" runat="server" Text="STUDENTS" class="btn btn-block btn-success" OnClick="Button1_Click" />
                     <asp:Button ID="Button2" runat="server" Text="RESEARCH" class="btn btn-block btn-success" OnClick="Button2_Click" style="margin-top:20px" />
                     <asp:Button ID="Button3" runat="server" Text="INVENTORY" class="btn btn-block btn-success" OnClick="Button3_Click" style="margin-top:20px" />
+                    <asp:Button ID="Button14" runat="server" Text="GRANT" class="btn btn-block btn-success" OnClick="Button14_Click" style="margin-top:20px" />
                 </div>
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="row">
@@ -25,8 +26,10 @@
                         <asp:Button ID="Button5" runat="server" Text="SEARCH FOR EXISITING STUDENT" OnClick="Button5_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
                         <asp:Button ID="Button10" runat="server" Text="ADD NEW RESEARCH PAPER" class="btn btn-danger" OnClick="Button10_Click" Visible="false"/>
                         <asp:Button ID="Button11" runat="server" Text="SEARCH FOR EXISITING RESEARCH PAPER" OnClick="Button11_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
-                        <asp:Button ID="Button12" runat="server" Text="ADD NEW" class="btn btn-danger" OnClick="Button12_Click" Visible="false"/>
-                        <asp:Button ID="Button13" runat="server" Text="SEARCH FOR EXISITING" OnClick="Button13_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
+                        <asp:Button ID="Button12" runat="server" Text="ADD NEW EQUPMENT" class="btn btn-danger" OnClick="Button12_Click" Visible="false"/>
+                        <asp:Button ID="Button13" runat="server" Text="SEARCH FOR EXISITING EQUIPMENT" OnClick="Button13_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
+                        <asp:Button ID="Button15" runat="server" Text="ADD NEW GRANT" class="btn btn-danger" OnClick="Button15_Click" Visible="false"/>
+                        <asp:Button ID="Button16" runat="server" Text="SEARCH FOR EXISITING GRANT" OnClick="Button16_Click" class="btn btn-danger" style="margin-left:100px" Visible="false"/>
                     </div>
                     <div class="row" style="margin-top:30px">
                         <asp:Panel runat="server" ID="Panel1" Width="100%" Visible="false">
@@ -155,6 +158,101 @@
                                     <div class="row" style="margin-top:5px">
                                         <div class="col-lg-8 col-lg-offset-2">
                                             <asp:Label ID="Label16" runat="server" Text="" class="nf-r1" ForeColor="Red"  style="margin-left:45px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="Panel5" Width="100%" Visible="false">
+                            <div class="row">
+                                <div class="col-lg-offset-2 col-lg-10 nf-r1">
+                                    <div class="row ">
+                                        <div class="col-lg-3">
+                                            <asp:Label ID="Label15" runat="server" Text="DEPARTMENT" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                            <asp:TextBox ID="TextBox14" runat="server" BorderStyle="NotSet" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-lg-3">
+                                            <asp:Label ID="Label17" runat="server" Text="YEAR" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                            <asp:TextBox ID="TextBox15" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-lg-3">
+                                            <asp:Label ID="Label18" runat="server" Text="UNIVERSITY FUNDS" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                            <asp:TextBox ID="TextBox16" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-lg-3">
+                                            <asp:Label ID="Label19" runat="server" Text="MISCELLANEOUS FUNDS" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                            <asp:TextBox ID="TextBox17" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>                                    
+                                    <div class="row" style="margin-top:30px">
+                                        <div class="col-lg-6 col-lg-offset-3">
+                                            <asp:Button ID="Button17" runat="server" Text="ADD GRANT" class="btn btn-primary" OnClick="Button17_Click"/>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:5px">
+                                        <div class="col-lg-8 col-lg-offset-2">
+                                            <asp:Label ID="Label20" runat="server" Text="" class="nf-r1" ForeColor="Red"  style="margin-left:45px"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <asp:Panel runat="server" ID="Panel6" Width="100%" Visible="false">
+                            <div class="row">
+                                <div class="col-lg-offset-2 col-lg-10 nf-r1">
+                                    <div class="row ">
+                                        <div class="col-lg-3">
+                                            <asp:Label ID="Label21" runat="server" Text="EQUIPMENT" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                            <asp:TextBox ID="TextBox18" runat="server" BorderStyle="NotSet" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-lg-3">
+                                            <asp:Label ID="Label22" runat="server" Text="LOCATION" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                            <asp:TextBox ID="TextBox19" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>
+                                    <div class="row" >
+                                        <div class="col-lg-3">
+                                            <asp:Label ID="Label23" runat="server" Text="QUANTITY" class="nf-r1" />
+                                        </div>
+                                        <div class="col-lg-4 col-lg-offset-1 form-group">
+                                            <asp:TextBox ID="TextBox20" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                    </div>                               
+                                    <div class="row" style="margin-top:30px">
+                                        <div class="col-lg-6 col-lg-offset-3">
+                                            <asp:Button ID="Button18" runat="server" Text="ADD EQUIPMENT" class="btn btn-primary" OnClick="Button18_Click"/>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:5px">
+                                        <div class="col-lg-8 col-lg-offset-2">
+                                            <asp:Label ID="Label25" runat="server" Text="" class="nf-r1" ForeColor="Red"  style="margin-left:45px"/>
                                         </div>
                                     </div>
                                 </div>
