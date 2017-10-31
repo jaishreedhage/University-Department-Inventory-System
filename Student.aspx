@@ -22,10 +22,7 @@
                             <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True" GridLines="None" DataKeyNames="CourseID" DataSourceID="SqlDataSource1" PageSize="2" CellPadding="200" CellSpacing="100">
                                 <HeaderStyle Font-Bold="True" />
                                 <PagerStyle  HorizontalAlign="Center" />
-                                <SortedAscendingCellStyle />
-                                <SortedAscendingHeaderStyle />
-                                <SortedDescendingCellStyle />
-                                <SortedDescendingHeaderStyle  />
+                                
                                 <Columns>
                                     <asp:TemplateField HeaderText="CourseID" SortExpression="CourseID">
                                         <EditItemTemplate>
@@ -73,7 +70,7 @@
                         </div>
                         <div class="row" style="margin-top:20px">
                             <div class="col-lg-4 col-lg-offset-4">
-                                <asp:Button ID="add_courses" runat="server" Text="REGISTER SELECTED COURSES" OnClick="add_courses_Click" class="btn btn-success"/>
+                                <asp:Button ID="add_courses" runat="server" Text="REGISTER SELECTED COURSES" OnClick="add_courses_Click" class="btn btn-success" />
                             </div>
                         </div>
                 

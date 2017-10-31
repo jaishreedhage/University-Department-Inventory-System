@@ -19,10 +19,12 @@ public partial class EditDetails : System.Web.UI.Page
             if (Session["User"] != null && Session["Member"].ToString() == "Administrator")
             {
                 edit = "Welcome " + Session["User"] + ". Please update any changes!";
+                Button1.Visible = Button2.Visible = Button3.Visible = Button14.Visible = true;
             }
             else
             {
                 edit = "Only administrator login is allowed here to edit details.";
+                Button1.Visible = Button2.Visible = Button3.Visible = Button14.Visible = false;
             }
             this.DataBind();
         }

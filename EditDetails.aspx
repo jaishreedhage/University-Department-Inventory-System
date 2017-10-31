@@ -283,6 +283,8 @@
                                                 </UpdateParameters>
                                             </asp:SqlDataSource>
                                             <asp:GridView ID="GridView1" runat="server" DataSourceID="ds"  CellSpacing="20" AutoGenerateColumns="False" GridLines="None">
+                                                <HeaderStyle Font-Bold="True" />
+                                                <PagerStyle  HorizontalAlign="Center" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Name">
                                                         <EditItemTemplate>
@@ -369,6 +371,8 @@
                                                 </FilterParameters>
                                             </asp:SqlDataSource>
                                             <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" GridLines="None" AutoGenerateEditButton="True">
+                                                <HeaderStyle Font-Bold="True" />
+                                                <PagerStyle  HorizontalAlign="Center" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Department">
                                                         <EditItemTemplate>
@@ -439,7 +443,8 @@
                                                 </UpdateParameters>
                                             </asp:SqlDataSource>
                                             <asp:GridView ID="GridView3" DataSourceID="SqlDataSource2" runat="server" AutoGenerateColumns="False" GridLines="None">
-
+                                                <HeaderStyle Font-Bold="True" />
+                                                <PagerStyle  HorizontalAlign="Center" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Department">
                                                         <EditItemTemplate>
@@ -511,7 +516,8 @@
                                                 </UpdateParameters>
                                             </asp:SqlDataSource>
                                             <asp:GridView ID="GridView4" DataSourceID="SqlDataSource3" runat="server" AutoGenerateColumns="False" GridLines="None">
-                                                
+                                                <HeaderStyle Font-Bold="True" />
+                                                <PagerStyle  HorizontalAlign="Center" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Equipment">
                                                         <EditItemTemplate>
