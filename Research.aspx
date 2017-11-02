@@ -16,7 +16,7 @@
             <div class="row" >
                 <div class="col-lg-6 col-lg-offset-3" style="margin-top:50px">
                     <asp:SqlDataSource ID="research" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="SELECT * FROM Research ORDER BY Department, Faculty_name, Status" ProviderName="System.Data.SqlClient" />
-                    <asp:GridView ID="GridView1" runat="server" DataSourceID="research" AutoGenerateColumns="False" width="60%" AllowPaging="True"  AllowSorting="True" PageSize="2">
+                    <asp:GridView ID="GridView1" runat="server" GridLines="None" DataSourceID="research" AutoGenerateColumns="False" width="60%" AllowPaging="True"  AllowSorting="True" PageSize="2">
                         <Columns>
                             <asp:TemplateField HeaderText="Department" SortExpression="Department">
                                 <EditItemTemplate>

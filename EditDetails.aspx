@@ -274,7 +274,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 col-lg-offset-4">
-                                            <asp:Label ID="Label29" runat="server" Text="" class="nf-r1" />
+                                            <asp:Label ID="Label29" runat="server" Text="" class="nf-r1" ForeColor="red"/>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top:40px">
@@ -661,6 +661,9 @@
                                 </div>
                             </div>
                         </asp:Panel>
+                    </div>
+                    <div class="row" style="margin-top:30px">
+
                     </div>
                 </div>                
             </div>

@@ -86,178 +86,85 @@ public partial class EditDetails : System.Web.UI.Page
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-        Panel5.Visible = false;
+        Panel5.Visible = Panel3.Visible = Panel2.Visible = Panel4.Visible = Panel6.Visible = Panel7.Visible = Panel8.Visible = false;
         Panel1.Visible = true;
-        Panel3.Visible = false;
-        Panel2.Visible = false;
-        Panel4.Visible = false;
-        Panel6.Visible = false;
-        Panel7.Visible = false;
-        Panel8.Visible = false;
     }
 
     protected void Button5_Click(object sender, EventArgs e)
     {
-        Panel5.Visible = false;
+        Panel5.Visible = Panel1.Visible = Panel2.Visible = Panel4.Visible = Panel6.Visible = Panel7.Visible = Panel8.Visible = false;
         Panel3.Visible = true;
-        Panel1.Visible = false;
-        Panel2.Visible = false;
-        Panel4.Visible = false;
-        Panel6.Visible = false;
-        Panel7.Visible = false;
-        Panel8.Visible = false;
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Button16.Visible = false;
-        Button15.Visible = false;
+        Button16.Visible = Button15.Visible = Button10.Visible = Button11.Visible = Button12.Visible = Button13.Visible = false;
         Button4.Visible = true;
         Button5.Visible = true;
-        Button10.Visible = false;
-        Button11.Visible = false;
-        Button12.Visible = false;
-        Button13.Visible = false;
-        Panel2.Visible = false;
-        Panel4.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = false;
+        Panel2.Visible = Panel4.Visible = Panel3.Visible = Panel1.Visible = Panel5.Visible = Panel6.Visible = Panel8.Visible = false;
         Panel7.Visible = false;
-        Panel8.Visible = false;
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Button16.Visible = false;
-        Button15.Visible = false;
-        Button4.Visible = false;
-        Button5.Visible = false;
+        Button16.Visible = Button15.Visible = Button4.Visible = Button5.Visible = Button12.Visible = Button13.Visible = false;
         Button10.Visible = true;
         Button11.Visible = true;
-        Button12.Visible = false;
-        Button13.Visible = false;
-        Panel2.Visible = false;
-        Panel4.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = false;
-        Panel7.Visible = false;
+        Panel2.Visible = Panel4.Visible = Panel3.Visible = Panel1.Visible = Panel5.Visible = Panel6.Visible = Panel7.Visible = false;
         Panel8.Visible = false;
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        Button16.Visible = false;
-        Button15.Visible = false;
-        Button4.Visible = false;
-        Button5.Visible = false;
-        Button10.Visible = false;
-        Button11.Visible = false;
+        Button16.Visible = Button15.Visible = Button4.Visible = Button5.Visible = Button10.Visible = Button11.Visible = false;
         Button12.Visible = true;
         Button13.Visible = true;
-        Panel2.Visible = false;
-        Panel4.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = false;
-        Panel7.Visible = false;
+        Panel2.Visible = Panel4.Visible = Panel3.Visible = Panel1.Visible = Panel5.Visible = Panel6.Visible = Panel7.Visible = false;
         Panel8.Visible = false;
     }
 
     protected void Button10_Click(object sender, EventArgs e)
     {
-        Panel6.Visible = false;
-        Panel5.Visible = false;
+        Panel6.Visible = Panel5.Visible = Panel4.Visible = Panel3.Visible = Panel1.Visible = Panel7.Visible = Panel8.Visible = false;
         Panel2.Visible = true;
-        Panel4.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel7.Visible = false;
-        Panel8.Visible = false;
     }
 
     protected void Button11_Click(object sender, EventArgs e)
     {
-        Panel5.Visible = false;
+        Panel5.Visible = Panel2.Visible = Panel3.Visible = Panel1.Visible = Panel6.Visible = Panel7.Visible = Panel8.Visible = false;
         Panel4.Visible = true;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel6.Visible = false;
-        Panel7.Visible = false;
-        Panel8.Visible = false;
     }
 
     protected void Button12_Click(object sender, EventArgs e)
     {
-        Panel5.Visible = false;
+        Panel5.Visible = Panel4.Visible = Panel2.Visible = Panel3.Visible = Panel1.Visible = Panel7.Visible = Panel8.Visible = false;
         Panel6.Visible = true;
-        Panel4.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel7.Visible = false;
-        Panel8.Visible = false;
     }
 
     protected void Button13_Click(object sender, EventArgs e)
     {
         Panel8.Visible = true;
-        Panel5.Visible = false;
-        Panel6.Visible = false;
-        Panel4.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel7.Visible = false;
+        Panel5.Visible = Panel6.Visible = Panel4.Visible = Panel2.Visible = Panel3.Visible = Panel1.Visible = Panel7.Visible = false;
     }
 
     protected void Button14_Click(object sender, EventArgs e)
     {
-        Button16.Visible = true;
-        Button15.Visible = true;
-        Button4.Visible = false;
-        Button5.Visible = false;
-        Button10.Visible = false;
-        Button11.Visible = false;
-        Button12.Visible = false;
-        Button13.Visible = false;
-        Panel2.Visible = false;
-        Panel4.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel5.Visible = false;
-        Panel6.Visible = false;
-        Panel7.Visible = false;
+        Button16.Visible = Button15.Visible = true;
+        Button4.Visible = Button5.Visible = Button10.Visible = Button11.Visible = Button12.Visible = Button13.Visible = false;
+        Panel2.Visible = Panel4.Visible = Panel3.Visible = Panel1.Visible = Panel5.Visible = Panel6.Visible = Panel7.Visible = false;
         Panel8.Visible = false;
     }
 
     protected void Button15_Click(object sender, EventArgs e)
     {
         Panel5.Visible = true;
-        Panel4.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel6.Visible = false;
-        Panel7.Visible = false;
-        Panel8.Visible = false;
+        Panel4.Visible = Panel2.Visible = Panel3.Visible = Panel1.Visible = Panel6.Visible = Panel7.Visible = Panel8.Visible = false;
     }
 
     protected void Button16_Click(object sender, EventArgs e)
     {
         Panel7.Visible = true;
-        Panel5.Visible = false;
-        Panel4.Visible = false;
-        Panel2.Visible = false;
-        Panel3.Visible = false;
-        Panel1.Visible = false;
-        Panel6.Visible = false;
-        Panel8.Visible = false;
+        Panel5.Visible = Panel4.Visible = Panel2.Visible = Panel3.Visible = Panel1.Visible = Panel6.Visible = Panel8.Visible = false;
     }
 
     protected void Button17_Click(object sender, EventArgs e)
@@ -325,7 +232,7 @@ public partial class EditDetails : System.Web.UI.Page
     {  
         if (GridView1.Rows.Count == 0)
         {
-            Label29.Text = "hsgfh";
+            Label29.Text = "STUDENT DOESN'T EXIST!";
             Label29.Visible = true;
             Label27.Visible = false;
             DropDownList1.Visible = false;
