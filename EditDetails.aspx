@@ -261,7 +261,7 @@
                         <asp:Panel runat="server" ID="Panel3" Width="100%" Visible="false">
                             <div class="row">
                                 <div class="nf-r1">
-                                    <div class="row ">
+                                    <div class="row" style="margin-top:20px">
                                         <div class="col-lg-2 col-lg-offset-2">
                                             <asp:Label ID="Label13" runat="server" Text="SEARCH STUDENT" class="nf-r1" />
                                         </div>
@@ -269,10 +269,15 @@
                                             <asp:TextBox ID="TextBox12" runat="server" class="form-control" placeholder="Registration number"></asp:TextBox>
                                         </div>
                                         <div class="col-lg-5 ">
-                                            <asp:Button ID="Button8" runat="server" Text="SEARCH" class="btn btn-primary"/>
+                                            <asp:Button ID="Button8" runat="server" Text="SEARCH" class="btn btn-primary" OnClick="Button8_Click"/>
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-lg-4 col-lg-offset-4">
+                                            <asp:Label ID="Label29" runat="server" Text="" class="nf-r1" />
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:40px">
                                         <div class="col-lg-8 col-lg-offset-1">
                                             <asp:SqlDataSource ID="ds" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="Select * from Student where Reg_no = @reg" ProviderName="System.Data.SqlClient" UpdateCommand="Update Student set Name=@Name,Address=@Address,Year_to_graduate=@Year_to_graduate,Department=@Department where Reg_no = @reg">
                                                 <SelectParameters>
@@ -282,7 +287,7 @@
                                                     <asp:ControlParameter ControlID="TextBox12" Name="reg" PropertyName="Text" />
                                                 </UpdateParameters>
                                             </asp:SqlDataSource>
-                                            <asp:GridView ID="GridView1" runat="server" DataSourceID="ds"  CellSpacing="20" AutoGenerateColumns="False" GridLines="None">
+                                            <asp:GridView ID="GridView1" runat="server" DataSourceID="ds" CellSpacing="20" AutoGenerateColumns="False" GridLines="None">
                                                 <HeaderStyle Font-Bold="True" />
                                                 <PagerStyle  HorizontalAlign="Center" />
                                                 <Columns>
@@ -345,6 +350,98 @@
                                             </asp:GridView>
                                         </div>
                                         <div class="col-lg-3"></div>
+                                    </div>
+                                    <div class="row" style="margin-top:40px">
+                                        <div class="col-lg-3 col-lg-offset-2">
+                                            <asp:Label ID="Label27" runat="server" Text="Semester grade sheet :" class="nf-r1" Visible="false" />
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <asp:DropDownList ID="DropDownList1" runat="server" Width="100%" Height="30px" Visible="false" Font-Size="16px">                                               
+                                                <asp:ListItem>7</asp:ListItem>
+                                                <asp:ListItem>6</asp:ListItem>
+                                                <asp:ListItem>5</asp:ListItem>
+                                                <asp:ListItem>4</asp:ListItem>
+                                                <asp:ListItem>3</asp:ListItem>
+                                                <asp:ListItem>2</asp:ListItem>
+                                                <asp:ListItem>1</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="col-lg-5 ">
+                                            <asp:Button ID="Button21" runat="server" Text="SEARCH" class="btn btn-primary" Visible="false"/>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:40px">
+                                        <div class="col-lg-10 col-lg-offset-1">
+                                            <div class="row text-center nf-r1">
+                                                <asp:Label ID="Label28" runat="server" Text="" Visible="true"></asp:Label>
+                                            </div>
+                                            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:UDIS %>" SelectCommand="Select Registered_courses.CourseID, Course.CourseName, Registered_courses.Status, Registered_courses.Marks, Registered_courses.Grade from Registered_courses inner join Course on Registered_courses.CourseID = Course.CourseID where Reg_no = @reg and Semester = @sem" ProviderName="System.Data.SqlClient" UpdateCommand="Update Registered_courses set Marks=@Marks, Grade=@Grade, Status=@Status where Reg_no = @reg and CourseID = @CourseID">
+                                                <SelectParameters>
+                                                    <asp:ControlParameter ControlID="TextBox12" Name="reg" PropertyName="Text" />
+                                                    <asp:ControlParameter ControlID="DropDownList1" Name="sem" PropertyName="SelectedValue" />
+                                                </SelectParameters>
+                                                <UpdateParameters>
+                                                    <asp:ControlParameter ControlID="TextBox12" Name="reg" PropertyName="Text" />
+                                                    
+                                                </UpdateParameters>
+                                            </asp:SqlDataSource>
+                                            <asp:GridView ID="GridView5" runat="server" DataSourceID="SqlDataSource4" AutoGenerateColumns="False" DataKeyNames="CourseID" AllowPaging="True" AllowSorting="True" GridLines="None" PageSize="2">
+                                                <HeaderStyle Font-Bold="True" />
+                                                <PagerStyle  HorizontalAlign="Center" />
+                                                <SortedAscendingCellStyle />
+                                                <SortedAscendingHeaderStyle />
+                                                <SortedDescendingCellStyle />
+                                                <SortedDescendingHeaderStyle  />
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="CourseID">
+                                                        <EditItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("CourseID") %>'></asp:Label>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("CourseID") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="120px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="CourseName">
+                                                        <EditItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("CourseName") %>'></asp:Label>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("CourseName") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Status">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Status") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="170px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Marks">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Marks") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Marks") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Grade">
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Grade") %>' CssClass="form-control"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Grade") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ControlStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ShowEditButton="True" />
+                                                </Columns>
+                                            </asp:GridView>
+                                        </div>          
                                     </div>
                                 </div>
                             </div>

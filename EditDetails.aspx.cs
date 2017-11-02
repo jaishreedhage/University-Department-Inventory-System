@@ -315,4 +315,28 @@ public partial class EditDetails : System.Web.UI.Page
             Label25.Text = "New inventory added";
         }
     }
+
+    protected void Button21_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button8_Click(object sender, EventArgs e)
+    {  
+        if (GridView1.Rows.Count == 0)
+        {
+            Label29.Text = "hsgfh";
+            Label29.Visible = true;
+            Label27.Visible = false;
+            DropDownList1.Visible = false;
+            Button21.Visible = false;
+        }
+        else
+        {
+            Label27.Visible = true;
+            DropDownList1.Visible = true;
+            Button21.Visible = true;
+            Label29.Visible = false;
+        }
+    }
 }
