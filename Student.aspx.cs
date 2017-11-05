@@ -77,7 +77,7 @@ public partial class Student : System.Web.UI.Page
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
                         string c_id = (row.Cells[2].FindControl("Label1") as Label).Text;
-                        string sql = "Insert into Registered_courses (Id,Reg_no,CourseID,Status,Semester) values ('" + ++id + "','" + Session["User"] + "','" + c_id + "','Registered','7')";
+                        string sql = "Insert into Registered_courses (Id,Reg_no,CourseID,Year,Status,Semester) values ('" + ++id + "','" + Session["User"] + "','" + c_id + "','2017'" + ",'Registered','7')";
                         using (SqlCommand cmd = new SqlCommand(sql, con))
                         {
                             con.Open();

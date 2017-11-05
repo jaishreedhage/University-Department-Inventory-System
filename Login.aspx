@@ -44,7 +44,7 @@
             <div class="row form-group">
                 <div class="col-sm-4 col-sm-offset-4 text-center">
                     <div class="col-sm-8 col-sm-offset-2 text-center">
-                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Enter password" OnTextChanged="TextBox2_TextChanged" AutoPostBack="true"></asp:TextBox>
+                        <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Enter password" Type="Password" OnTextChanged="TextBox2_TextChanged" AutoPostBack="true"></asp:TextBox>
                         
                     </div>
                 </div>

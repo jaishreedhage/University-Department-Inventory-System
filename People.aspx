@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
-                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Jaishree.jpg" style="border-radius:50%; max-height:50%; max-width:50%" BorderStyle="None"/>
+                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/anuja.jpg" style="border-radius:50%; max-height:50%; max-width:50%" BorderStyle="None"/>
                     </div>
                     <div class="row">
                         <asp:Label ID="Label2" runat="server" Text="ANUJA" class="nf-r1"/>
